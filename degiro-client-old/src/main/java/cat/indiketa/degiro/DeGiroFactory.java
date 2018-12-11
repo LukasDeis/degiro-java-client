@@ -4,10 +4,7 @@ import cat.indiketa.degiro.session.DSession;
 import cat.indiketa.degiro.session.DSessionExpiredRetryProxy;
 import cat.indiketa.degiro.utils.DCredentials;
 
-/**
- *
- * @author indiketa
- */
+
 public class DeGiroFactory {
 
     public static DeGiro newInstance(DCredentials credentials) {

@@ -1,36 +1,26 @@
 package cat.indiketa.degiro.model;
 
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-/**
- *
- * @author indiketa
- */
+@Data
+@Builder
+@NoArgsConstructor
 public class DPortfolioProducts {
 
     private List<DPortfolioProduct> active;
     private List<DPortfolioProduct> inactive;
 
-    public List<DPortfolioProduct> getActive() {
-        return active;
-    }
-
-    public void setActive(List<DPortfolioProduct> active) {
-        this.active = active;
-    }
-
-    public List<DPortfolioProduct> getInactive() {
-        return inactive;
-    }
-
-    public void setInactive(List<DPortfolioProduct> inactive) {
-        this.inactive = inactive;
-    }
-
+    @Data
+    @Builder
+    @NoArgsConstructor
     public static class DPortfolioProduct {
 
         protected long id;
