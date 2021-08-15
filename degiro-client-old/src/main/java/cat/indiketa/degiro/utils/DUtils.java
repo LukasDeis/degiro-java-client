@@ -349,7 +349,6 @@ public class DUtils {
     }
 
     public static DLastTransactions convert(DRawTransactions rawOrders) {
-        DLastTransactions transactions = new DLastTransactions();
         List<DTransaction> list = new LinkedList<>();
 
         for (Value value : rawOrders.getTransactions().getValue()) {
@@ -357,7 +356,7 @@ public class DUtils {
             list.add(order);
         }
 
-        transactions.setTransactions(list);
+        DLastTransactions transactions = new DLastTransactions(list);
 
         return transactions;
 

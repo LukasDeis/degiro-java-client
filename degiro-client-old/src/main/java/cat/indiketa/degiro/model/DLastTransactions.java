@@ -14,6 +14,11 @@ public class DLastTransactions {
 
     private List<DTransaction> transactions;
 
+    public DLastTransactions(List<DTransaction> transactions){
+        this.transactions = transactions;
+    }
+
+
     @Data
     @Builder
     public static class DTransaction {
@@ -35,6 +40,47 @@ public class DLastTransactions {
         private DOrderTime orderTime;
         private boolean isModifiable;
         private boolean isDeletable;
-    }
 
+        public DTransaction(){
+
+        }
+
+        public DTransaction(
+                long id,
+                Calendar date,
+                long productId,
+                String product,
+                int contractType,
+                int contractSize,
+                String currency,
+                DOrderAction buysell,
+                long size,
+                long quantity,
+                BigDecimal price,
+                BigDecimal stopPrice,
+                BigDecimal totalOrderValue,
+                DOrderType orderType,
+                DOrderTime orderTime,
+                boolean isModifiable,
+                boolean isDeletable
+        ){
+            this.id = id;
+            this.date = date;
+            this.productId = productId;
+            this.product = product;
+            this.contractType = contractType;
+            this.contractSize = contractSize;
+            this.currency = currency;
+            this.buysell = buysell;
+            this.size = size;
+            this.quantity = quantity;
+            this.price = price;
+            this.stopPrice = stopPrice;
+            this.totalOrderValue = totalOrderValue;
+            this.orderType = orderType;
+            this.orderTime = orderTime;
+            this.isModifiable = isModifiable;
+            this.isDeletable = isDeletable;
+        }
+    }
 }
