@@ -7,7 +7,6 @@ package cat.indiketa.degiro.engine;
 
 import cat.indiketa.degiro.log.DLog;
 import cat.indiketa.degiro.utils.DCredentials;
-import cat.indiketa.degiro.utils.DCredentials;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -32,6 +31,12 @@ public class Credentials implements DCredentials {
         } catch (IOException e) {
             DLog.ENGINE.error("Error loading credentials", e);
         }
+    }
+
+    public Credentials(String name, String password) {
+        props = new Properties();
+        props.setProperty("username", name);
+        props.setProperty("password", password);
     }
 
     @Override

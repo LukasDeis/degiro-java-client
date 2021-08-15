@@ -9,7 +9,9 @@ import java.io.File;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        DEngine e = new DEngine(new Credentials(new File("/home/ecatala/dg.properties")));
+        // Credentials credentials = new Credentials(new File("/home/ecatala/dg.properties"));
+        Credentials credentials = new Credentials("testname", "testPW");
+        DEngine e = new DEngine(credentials);
 
         e.startEngine();
     }
