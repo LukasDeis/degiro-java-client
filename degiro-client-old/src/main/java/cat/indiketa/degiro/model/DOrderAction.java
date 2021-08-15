@@ -1,4 +1,4 @@
-package cat.indiketa.degiro.model;
+package src.main.java.cat.indiketa.degiro.model;
 
 public enum DOrderAction {
     BUY(0, "B"),

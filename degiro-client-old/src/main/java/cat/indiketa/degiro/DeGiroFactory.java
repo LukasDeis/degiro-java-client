@@ -1,8 +1,8 @@
-package cat.indiketa.degiro;
+package src.main.java.cat.indiketa.degiro;
 
-import cat.indiketa.degiro.session.DSession;
-import cat.indiketa.degiro.session.DSessionExpiredRetryProxy;
-import cat.indiketa.degiro.utils.DCredentials;
+import src.main.java.cat.indiketa.degiro.session.DSession;
+import src.main.java.cat.indiketa.degiro.session.DSessionExpiredRetryProxy;
+import src.main.java.cat.indiketa.degiro.utils.DCredentials;
 
 
 public class DeGiroFactory {

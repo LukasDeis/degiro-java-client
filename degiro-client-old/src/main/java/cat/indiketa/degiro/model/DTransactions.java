@@ -1,4 +1,4 @@
-package cat.indiketa.degiro.model;
+package src.main.java.cat.indiketa.degiro.model;
 
 import java.util.List;
 

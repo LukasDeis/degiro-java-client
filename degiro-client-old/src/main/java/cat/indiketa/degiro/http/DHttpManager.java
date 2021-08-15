@@ -1,7 +1,6 @@
-package cat.indiketa.degiro.http;
+package src.main.java.cat.indiketa.degiro.http;
 
-import cat.indiketa.degiro.session.DSession;
-import cat.indiketa.degiro.log.DLog;
+
 import java.io.IOException;
 import java.security.KeyManagementException;
 import java.security.KeyStoreException;
@@ -31,6 +30,8 @@ import org.apache.http.message.BasicHeaderElementIterator;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.ssl.SSLContextBuilder;
+import src.main.java.cat.indiketa.degiro.log.DLog;
+import src.main.java.cat.indiketa.degiro.session.DSession;
 
 /**
  *

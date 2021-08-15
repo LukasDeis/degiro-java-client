@@ -4,9 +4,8 @@
  * and open the template in the editor.
  */
 
-package cat.indiketa.degiro.exceptions;
+package src.main.java.cat.indiketa.degiro.exceptions;
 
-import cat.indiketa.degiro.exceptions.DeGiroException;
 
 /**
  *

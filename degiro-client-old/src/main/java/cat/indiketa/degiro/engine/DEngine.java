@@ -1,4 +1,4 @@
-package cat.indiketa.degiro.engine;
+package src.main.java.cat.indiketa.degiro.engine;
 
 import cat.indiketa.degiro.DeGiro;
 import cat.indiketa.degiro.DeGiroFactory;

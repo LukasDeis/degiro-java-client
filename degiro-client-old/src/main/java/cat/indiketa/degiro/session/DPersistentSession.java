@@ -1,8 +1,6 @@
-package cat.indiketa.degiro.session;
+package src.main.java.cat.indiketa.degiro.session;
 
-import cat.indiketa.degiro.log.DLog;
-import cat.indiketa.degiro.model.DClient;
-import cat.indiketa.degiro.model.DConfig;
+
 import com.google.common.base.Strings;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -13,6 +11,9 @@ import java.io.IOException;
 import java.lang.reflect.Modifier;
 import java.util.List;
 import org.apache.http.impl.cookie.BasicClientCookie;
+import src.main.java.cat.indiketa.degiro.log.DLog;
+import src.main.java.cat.indiketa.degiro.model.DClient;
+import src.main.java.cat.indiketa.degiro.model.DConfig;
 
 /**
  *

@@ -1,6 +1,5 @@
-package cat.indiketa.degiro.http;
+package src.main.java.cat.indiketa.degiro.http;
 
-import cat.indiketa.degiro.session.DSession;
 import com.google.common.base.Charsets;
 import com.google.common.base.Strings;
 import com.google.common.io.CharStreams;
@@ -16,6 +15,7 @@ import org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.protocol.BasicHttpContext;
+import src.main.java.cat.indiketa.degiro.session.DSession;
 
 /**
  *

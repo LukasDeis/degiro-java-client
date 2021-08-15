@@ -1,10 +1,10 @@
-package cat.indiketa.degiro.session;
+package src.main.java.cat.indiketa.degiro.session;
 
-import cat.indiketa.degiro.model.DClient;
-import cat.indiketa.degiro.model.DConfig;
 import com.google.gson.annotations.Expose;
 import java.util.List;
 import org.apache.http.impl.cookie.BasicClientCookie;
+import src.main.java.cat.indiketa.degiro.model.DClient;
+import src.main.java.cat.indiketa.degiro.model.DConfig;
 
 /**
  *

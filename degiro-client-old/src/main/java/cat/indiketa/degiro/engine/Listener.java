@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cat.indiketa.degiro.engine;
+package src.main.java.cat.indiketa.degiro.engine;
 
 /**
  *

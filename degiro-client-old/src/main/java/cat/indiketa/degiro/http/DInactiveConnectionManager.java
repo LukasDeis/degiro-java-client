@@ -1,8 +1,8 @@
-package cat.indiketa.degiro.http;
+package src.main.java.cat.indiketa.degiro.http;
 
-import cat.indiketa.degiro.log.DLog;
 import java.util.concurrent.TimeUnit;
 import org.apache.http.conn.HttpClientConnectionManager;
+import src.main.java.cat.indiketa.degiro.log.DLog;
 
 /**
  *

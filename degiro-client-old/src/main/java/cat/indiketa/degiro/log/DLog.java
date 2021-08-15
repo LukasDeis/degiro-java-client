@@ -1,4 +1,4 @@
-package cat.indiketa.degiro.log;
+package src.main.java.cat.indiketa.degiro.log;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

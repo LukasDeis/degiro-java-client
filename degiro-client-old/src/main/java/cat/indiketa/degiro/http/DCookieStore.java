@@ -1,4 +1,4 @@
-package cat.indiketa.degiro.http;
+package src.main.java.cat.indiketa.degiro.http;
 
 import cat.indiketa.degiro.session.DSession;
 import java.util.List;

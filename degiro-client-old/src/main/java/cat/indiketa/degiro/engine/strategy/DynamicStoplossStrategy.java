@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package cat.indiketa.degiro.engine.strategy;
+package src.main.java.cat.indiketa.degiro.engine.strategy;
 
-import cat.indiketa.degiro.engine.Strategy;
+import src.main.java.cat.indiketa.degiro.engine.Strategy;
 
 /**
  *

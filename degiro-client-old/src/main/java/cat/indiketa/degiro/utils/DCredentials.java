@@ -1,4 +1,4 @@
-package cat.indiketa.degiro.utils;
+package src.main.java.cat.indiketa.degiro.utils;
 
 public interface DCredentials {
 
