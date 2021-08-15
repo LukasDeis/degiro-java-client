@@ -1,5 +1,6 @@
 package cat.indiketa.degiro;
 
+import cat.indiketa.degiro.model.*;
 import cat.indiketa.degiro.utils.DUtils;
 import cat.indiketa.degiro.utils.DCredentials;
 import cat.indiketa.degiro.session.DSession;
@@ -9,28 +10,6 @@ import cat.indiketa.degiro.exceptions.DInvalidCredentialsException;
 import cat.indiketa.degiro.http.DCommunication;
 import cat.indiketa.degiro.http.DCommunication.DResponse;
 import cat.indiketa.degiro.log.DLog;
-import cat.indiketa.degiro.model.DCashFunds;
-import cat.indiketa.degiro.model.DClient;
-import cat.indiketa.degiro.model.DConfig;
-import cat.indiketa.degiro.model.DLogin;
-import cat.indiketa.degiro.model.DOrders;
-import cat.indiketa.degiro.model.DPortfolioProducts;
-import cat.indiketa.degiro.model.DLastTransactions;
-import cat.indiketa.degiro.model.DNewOrder;
-import cat.indiketa.degiro.model.DOrder;
-import cat.indiketa.degiro.model.DOrderAction;
-import cat.indiketa.degiro.model.DOrderConfirmation;
-import cat.indiketa.degiro.model.DOrderTime;
-import cat.indiketa.degiro.model.DOrderType;
-import cat.indiketa.degiro.model.DPlacedOrder;
-import cat.indiketa.degiro.model.DPortfolioSummary;
-import cat.indiketa.degiro.model.DPrice;
-import cat.indiketa.degiro.model.DPriceHistory;
-import cat.indiketa.degiro.model.DPriceListener;
-import cat.indiketa.degiro.model.DProductSearch;
-import cat.indiketa.degiro.model.DProductType;
-import cat.indiketa.degiro.model.DProductDescriptions;
-import cat.indiketa.degiro.model.DTransactions;
 import cat.indiketa.degiro.model.raw.DRawCashFunds;
 import cat.indiketa.degiro.model.raw.DRawOrders;
 import cat.indiketa.degiro.model.raw.DRawPortfolio;
@@ -222,10 +201,10 @@ public class DeGiroImpl implements DeGiro {
             }
 
             response = comm.getUrlData(BASE_TRADER_URL, "/login/secure/config", null);
-            session.setConfig(gson.fromJson(getResponseData(response), DConfig.class));
+            session.setConfig(gson.fromJson(getResponseData(response), DConfigWrapper.class).data);
 
             response = comm.getUrlData(session.getConfig().getPaUrl(), "client?sessionId=" + session.getJSessionId(), null);
-            session.setClient(gson.fromJson(getResponseData(response), DClient.class));
+            session.setClient(gson.fromJson(getResponseData(response), DClientWrapper.class).data);
 
         } catch (IOException e) {
             throw new DeGiroException("IOException while retrieving user information", e);
@@ -568,9 +547,7 @@ public class DeGiroImpl implements DeGiro {
     }
 
     private String getResponseData(DResponse response) throws DeGiroException {
-
         DLog.HTTP.info(response.getMethod() + " " + response.getUrl() + " >> HTTP " + response.getStatus());
-        String data = null;
 
         if (response.getStatus() == 401) {
             DLog.DEGIRO.warn("Session expired, clearing session tokens");
@@ -579,13 +556,10 @@ public class DeGiroImpl implements DeGiro {
         }
 
         if (response.getStatus() == 200 || response.getStatus() == 201) {
-            data = response.getText();
-        } else {
-            throw new DeGiroException("Unexpected HTTP Status " + response.getStatus() + ": " + response.getMethod() + " " + response.getUrl());
+            return response.getText();
         }
 
-        return data;
-
+        throw new DeGiroException("Unexpected HTTP Status " + response.getStatus() + ": " + response.getMethod() + " " + response.getUrl());
     }
 
     public DSession getSession() {

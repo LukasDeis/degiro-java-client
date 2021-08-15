@@ -1,6 +1,12 @@
 package cat.indiketa.degiro.engine;
 
+import cat.indiketa.degiro.DeGiro;
+import cat.indiketa.degiro.DeGiroFactory;
+import cat.indiketa.degiro.model.DOrder;
+import cat.indiketa.degiro.utils.DCredentials;
+
 import java.io.File;
+import java.util.List;
 
 /**
  *
@@ -9,11 +15,32 @@ import java.io.File;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        // Credentials credentials = new Credentials(new File("/home/ecatala/dg.properties"));
-        Credentials credentials = new Credentials("testname", "testPW");
-        DEngine e = new DEngine(credentials);
+        //log in
+        DCredentials credentials = getCredentials();
+        DeGiro degiro = DeGiroFactory.newInstance(credentials);
 
-        e.startEngine();
+        //test connection by printing all open product orders
+        List<DOrder> orders = degiro.getOrders();
+        for (DOrder order : orders){
+            System.out.println(order.getProduct());
+        }
+
+    }
+
+    private static DCredentials getCredentials() {
+        DCredentials creds = new DCredentials() {
+
+            @Override
+            public String getUsername() {
+                return "";
+            }
+
+            @Override
+            public String getPassword() {
+                return "";
+            }
+        };
+        return creds;
     }
 }
 
