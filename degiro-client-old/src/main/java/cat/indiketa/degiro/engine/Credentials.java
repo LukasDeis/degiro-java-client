@@ -5,8 +5,10 @@
  */
 package src.main.java.cat.indiketa.degiro.engine;
 
-import cat.indiketa.degiro.log.DLog;
-import cat.indiketa.degiro.utils.DCredentials;
+import src.main.java.cat.indiketa.degiro.log.DLog;
+import src.main.java.cat.indiketa.degiro.utils.DCredentials;
+import src.main.java.cat.indiketa.degiro.utils.DCredentials;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;

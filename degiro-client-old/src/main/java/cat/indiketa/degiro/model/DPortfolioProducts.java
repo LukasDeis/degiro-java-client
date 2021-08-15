@@ -15,8 +15,8 @@ import java.util.Objects;
 @NoArgsConstructor
 public class DPortfolioProducts {
 
-    private List<DPortfolioProduct> active;
-    private List<DPortfolioProduct> inactive;
+    public List<DPortfolioProduct> active;
+    public List<DPortfolioProduct> inactive;
 
     @Data
     @Builder
