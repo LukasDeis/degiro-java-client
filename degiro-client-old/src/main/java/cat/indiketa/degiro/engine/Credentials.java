@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package src.main.java.cat.indiketa.degiro.engine;
+package cat.indiketa.degiro.engine;
 
-import src.main.java.cat.indiketa.degiro.log.DLog;
-import src.main.java.cat.indiketa.degiro.utils.DCredentials;
-import src.main.java.cat.indiketa.degiro.utils.DCredentials;
+import cat.indiketa.degiro.log.DLog;
+import cat.indiketa.degiro.utils.DCredentials;
+import cat.indiketa.degiro.utils.DCredentials;
 
 import java.io.File;
 import java.io.FileInputStream;

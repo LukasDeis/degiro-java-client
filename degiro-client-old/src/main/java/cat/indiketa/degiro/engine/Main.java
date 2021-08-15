@@ -1,4 +1,4 @@
-package src.main.java.cat.indiketa.degiro.engine;
+package cat.indiketa.degiro.engine;
 
 import java.io.File;
 

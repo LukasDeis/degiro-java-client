@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package src.main.java.cat.indiketa.degiro.model;
+package cat.indiketa.degiro.model;
 
 import java.math.BigDecimal;
 import java.util.List;

@@ -1,20 +1,23 @@
-package src.main.java.cat.indiketa.degiro.engine;
+package cat.indiketa.degiro.engine;
 
-import src.main.java.cat.indiketa.degiro.DeGiro;
-import src.main.java.cat.indiketa.degiro.DeGiroFactory;
-import src.main.java.cat.indiketa.degiro.engine.event.DProductChanged;
-import src.main.java.cat.indiketa.degiro.engine.event.DSummaryChanged;
-import src.main.java.cat.indiketa.degiro.exceptions.DeGiroException;
-import src.main.java.cat.indiketa.degiro.log.DLog;
-import src.main.java.cat.indiketa.degiro.model.DPortfolioProducts;
-import src.main.java.cat.indiketa.degiro.model.DPortfolioProducts.DPortfolioProduct;
-import src.main.java.cat.indiketa.degiro.model.DPortfolioSummary;
-import src.main.java.cat.indiketa.degiro.model.DPrice;
-import src.main.java.cat.indiketa.degiro.model.DPriceListener;
-import src.main.java.cat.indiketa.degiro.model.DProductDescription;
-import src.main.java.cat.indiketa.degiro.model.DProductDescriptions;
-import src.main.java.cat.indiketa.degiro.session.DPersistentSession;
-import src.main.java.cat.indiketa.degiro.utils.DCredentials;
+import cat.indiketa.degiro.DeGiro;
+import cat.indiketa.degiro.DeGiroFactory;
+import cat.indiketa.degiro.engine.event.DProductChanged;
+import cat.indiketa.degiro.engine.event.DSummaryChanged;
+import cat.indiketa.degiro.exceptions.DeGiroException;
+import cat.indiketa.degiro.log.DLog;
+import cat.indiketa.degiro.model.DPortfolioProducts;
+import cat.indiketa.degiro.model.DPortfolioProducts.DPortfolioProduct;
+import cat.indiketa.degiro.model.DPortfolioSummary;
+import cat.indiketa.degiro.model.DPrice;
+import cat.indiketa.degiro.model.DPriceListener;
+import cat.indiketa.degiro.model.DProductDescription;
+import cat.indiketa.degiro.model.DProductDescriptions;
+import cat.indiketa.degiro.session.DPersistentSession;
+import cat.indiketa.degiro.utils.DCredentials;
+import cat.indiketa.degiro.engine.Product;
+import cat.indiketa.degiro.engine.DEngineConfig;
+import cat.indiketa.degiro.engine.PathManager;
 import com.google.common.base.Joiner;
 import com.google.common.base.Strings;
 import com.google.common.eventbus.AsyncEventBus;
@@ -36,7 +39,7 @@ import java.util.concurrent.TimeUnit;
  *
  * @author indiketa
  */
-public class DEngine {
+public class DEngine  {
 
     private final PathManager pathManager;
     private final DeGiro degiro;
@@ -112,16 +115,16 @@ public class DEngine {
                 try {
                     DPortfolioProducts portfolio = degiro.getPortfolio();
                     boolean newActiveProducts = mergeProducts(portfolio.active);
-                    boolean newInactiveProducts = mergeProducts(portfolio.inactive());
+                    boolean newInactiveProducts = mergeProducts(portfolio.inactive);
 
                     inactiveComponents.remove(PORTFOLIO);
 
-                    if (portfolio.active.size() + portfolio.getInactive().size() == 0) {
+                    if (portfolio.active.size() + portfolio.inactive.size() == 0) {
                         inactiveComponents.remove(DESCRIPTION);
                         inactiveComponents.remove(PRICES);
                     }
 
-                    DLog.ENGINE.info("Portfolio refresh completed: " + portfolio.getActive().size() + " active, " + portfolio.getInactive().size() + " inactive.");
+                    DLog.ENGINE.info("Portfolio refresh completed: " + portfolio.active.size() + " active, " + portfolio.inactive.size() + " inactive.");
 
                     if (newActiveProducts || newInactiveProducts) {
                         fetchDescriptions();

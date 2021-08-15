@@ -1,4 +1,4 @@
-package src.main.java.cat.indiketa.degiro.http;
+package cat.indiketa.degiro.http;
 
 
 import java.io.IOException;
@@ -30,8 +30,8 @@ import org.apache.http.message.BasicHeaderElementIterator;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.ssl.SSLContextBuilder;
-import src.main.java.cat.indiketa.degiro.log.DLog;
-import src.main.java.cat.indiketa.degiro.session.DSession;
+import cat.indiketa.degiro.log.DLog;
+import cat.indiketa.degiro.session.DSession;
 
 /**
  *

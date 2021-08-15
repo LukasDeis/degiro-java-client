@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package src.main.java.cat.indiketa.degiro.engine.event;
+package cat.indiketa.degiro.engine.event;
 
-import src.main.java.cat.indiketa.degiro.model.DPortfolioProducts.DPortfolioProduct;
+import cat.indiketa.degiro.model.DPortfolioProducts.DPortfolioProduct;
 
 /**
  *

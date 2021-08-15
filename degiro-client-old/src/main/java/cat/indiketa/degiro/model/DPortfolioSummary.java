@@ -1,4 +1,4 @@
-package src.main.java.cat.indiketa.degiro.model;
+package cat.indiketa.degiro.model;
 
 import java.math.BigDecimal;
 import java.util.Date;

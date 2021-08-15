@@ -1,8 +1,8 @@
-package src.main.java.cat.indiketa.degiro.session;
+package cat.indiketa.degiro.session;
 
-import src.main.java.cat.indiketa.degiro.DeGiro;
-import src.main.java.cat.indiketa.degiro.DeGiroImpl;
-import src.main.java.cat.indiketa.degiro.exceptions.DUnauthorizedException;
+import cat.indiketa.degiro.DeGiro;
+import cat.indiketa.degiro.DeGiroImpl;
+import cat.indiketa.degiro.exceptions.DUnauthorizedException;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;

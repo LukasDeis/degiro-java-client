@@ -1,4 +1,4 @@
-package src.main.java.cat.indiketa.degiro.session;
+package cat.indiketa.degiro.session;
 
 
 import com.google.common.base.Strings;
@@ -11,9 +11,9 @@ import java.io.IOException;
 import java.lang.reflect.Modifier;
 import java.util.List;
 import org.apache.http.impl.cookie.BasicClientCookie;
-import src.main.java.cat.indiketa.degiro.log.DLog;
-import src.main.java.cat.indiketa.degiro.model.DClient;
-import src.main.java.cat.indiketa.degiro.model.DConfig;
+import cat.indiketa.degiro.log.DLog;
+import cat.indiketa.degiro.model.DClient;
+import cat.indiketa.degiro.model.DConfig;
 
 /**
  *

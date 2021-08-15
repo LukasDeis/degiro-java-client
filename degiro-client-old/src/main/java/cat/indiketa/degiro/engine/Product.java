@@ -13,15 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package src.main.java.cat.indiketa.degiro.engine;
+package cat.indiketa.degiro.engine;
 
 import com.google.common.base.Strings;
-import src.main.java.cat.indiketa.degiro.engine.event.DProductChanged;
-import src.main.java.cat.indiketa.degiro.exceptions.DeGiroException;
-import src.main.java.cat.indiketa.degiro.model.DPortfolioProducts.DPortfolioProduct;
-import src.main.java.cat.indiketa.degiro.model.DPrice;
-import src.main.java.cat.indiketa.degiro.model.DProductDescription;
-import src.main.java.cat.indiketa.degiro.model.DProductType;
+import cat.indiketa.degiro.engine.event.DProductChanged;
+import cat.indiketa.degiro.exceptions.DeGiroException;
+import cat.indiketa.degiro.model.DPortfolioProducts.DPortfolioProduct;
+import cat.indiketa.degiro.model.DPrice;
+import cat.indiketa.degiro.model.DProductDescription;
+import cat.indiketa.degiro.model.DProductType;
+import cat.indiketa.degiro.engine.DEngine;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
