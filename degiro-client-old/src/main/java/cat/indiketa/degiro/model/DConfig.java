@@ -2,11 +2,9 @@ package cat.indiketa.degiro.model;
 
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@NoArgsConstructor
 public class DConfig {
 
     private String tradingUrl;

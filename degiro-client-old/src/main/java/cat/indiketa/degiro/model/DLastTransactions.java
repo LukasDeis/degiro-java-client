@@ -10,14 +10,12 @@ import java.util.List;
 
 @Data
 @Builder
-@NoArgsConstructor
 public class DLastTransactions {
 
     private List<DTransaction> transactions;
 
     @Data
     @Builder
-    @NoArgsConstructor
     public static class DTransaction {
 
         private long id;

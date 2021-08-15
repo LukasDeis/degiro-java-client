@@ -7,14 +7,12 @@ package cat.indiketa.degiro.model;
 
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.util.Calendar;
 
 @Data
 @Builder
-@NoArgsConstructor
 public class DOrder {
     private String id;
     private Calendar date;

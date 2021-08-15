@@ -207,9 +207,9 @@ public class DeGiroImpl implements DeGiro {
     private void login() throws DeGiroException {
 
         try {
-            DLogin login = new DLogin();
-            login.setUsername(credentials.getUsername());
-            login.setPassword(credentials.getPassword());
+            String username = credentials.getUsername();
+            String password = credentials.getPassword();
+            DLogin login = new DLogin(username, password);
 
             DResponse response = comm.getUrlData(BASE_TRADER_URL, "/login/secure/login", login);
 

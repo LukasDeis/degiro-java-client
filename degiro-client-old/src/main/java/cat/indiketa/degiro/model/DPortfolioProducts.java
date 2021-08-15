@@ -7,20 +7,29 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
 @Data
 @Builder
-@NoArgsConstructor
 public class DPortfolioProducts {
 
     public List<DPortfolioProduct> active;
     public List<DPortfolioProduct> inactive;
 
+    public DPortfolioProducts(){
+        this.active = new LinkedList<>();
+        this.inactive = new LinkedList<>();
+    }
+
+    public DPortfolioProducts(List<DPortfolioProduct> active, List<DPortfolioProduct> inactive){
+        this.active = active;
+        this.inactive = inactive;
+    }
+
     @Data
     @Builder
-    @NoArgsConstructor
     public static class DPortfolioProduct {
 
         protected long id;
@@ -41,6 +50,50 @@ public class DPortfolioProducts {
         protected BigDecimal closePrice;
         protected BigDecimal plBase;
         protected BigDecimal todayPlBase;
+
+        public DPortfolioProduct(){
+
+        }
+
+        public DPortfolioProduct(
+                long id,
+                String product,
+                long size,
+                BigDecimal price,
+                BigDecimal realPrice,
+                BigDecimal change,
+                BigDecimal value,
+                BigDecimal realValue,
+                Date lastUpdate,
+                String currency,
+                String exchangeBriefCode,
+                long contractSize,
+                boolean closedToday,
+                String productCategory,
+                boolean tradable,
+                BigDecimal closePrice,
+                BigDecimal plBase,
+                BigDecimal todayPlBase
+        ){
+            this.id = id;
+            this.product = product;
+            this.size  = size ;
+            this.price = price;
+            this.realPrice = realPrice;
+            this.change = change;
+            this.value = value;
+            this.realValue = realValue;
+            this.lastUpdate = lastUpdate;
+            this.currency = currency;
+            this.exchangeBriefCode = exchangeBriefCode;
+            this.contractSize = contractSize;
+            this.closedToday = closedToday;
+            this.productCategory = productCategory;
+            this.tradable = tradable;
+            this.closePrice = closePrice;
+            this.plBase = plBase;
+            this.todayPlBase = todayPlBase;
+        }
 
         public long getId() {
             return id;

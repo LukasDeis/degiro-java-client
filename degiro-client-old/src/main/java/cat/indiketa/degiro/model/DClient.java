@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@NoArgsConstructor
 public class DClient {
     private long id;
     private long intAccount;
@@ -32,7 +31,6 @@ public class DClient {
 
     @Data
     @Builder
-    @NoArgsConstructor
     public static class Address {
         public String streetAddress;
         public String streetAddressNumber;
@@ -45,7 +43,6 @@ public class DClient {
 
     @Data
     @Builder
-    @NoArgsConstructor
     public static class BankAccount {
 
         public String iban;
@@ -57,7 +54,6 @@ public class DClient {
 
     @Data
     @Builder
-    @NoArgsConstructor
     public static class FirstContact {
 
         public String firstName;
