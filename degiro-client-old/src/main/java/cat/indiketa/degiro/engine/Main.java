@@ -25,6 +25,7 @@ public class Main {
             System.out.println(order.getProduct());
         }
 
+        //starting the automatic bailout bot
     }
 
     private static DCredentials getCredentials() {
