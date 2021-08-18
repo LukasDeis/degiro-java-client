@@ -24,7 +24,7 @@ class BailoutBot (
             degiro.setPriceListener(DPriceListener {
                 actOnPrice(product)
             })
-            val vwdID = product.DProduct
+            val vwdID = product
             vwdIssueIds.add(vwdID) // Example product vwdIssueId
         }
         degiro.subscribeToPrice(vwdIssueIds) // Callable multiple times with different products.
@@ -42,15 +42,25 @@ class BailoutBot (
             if(percentualChange > BigDecimal(0.05)){
                 // Generate a new order. Signature:
                 // public DNewOrder(DOrderAction action, DOrderType orderType, DOrderTime timeType, long productId, long size, BigDecimal limitPrice, BigDecimal stopPrice)
-                val productID = 0 //TODO get product ID for order
-                val size = 0 //TODO get number of shares from portfolio
-                val order = DNewOrder(DOrderAction.SELL, DOrderType.LIMITED, DOrderTime.DAY, productID, size, BigDecimal("4.5"), null)
+                val productID = product.id
+                val size = degiro.portfolio.active
+                    .filter { it.id = productID }
+                    .size
+                    .toLong()
+                val order = DNewOrder(
+                    DOrderAction.SELL,
+                    DOrderType.LIMITED,
+                    DOrderTime.DAY,
+                    productID,
+                    size,
+                    BigDecimal("4.5"),
+                    null)
                 val confirmation: DOrderConfirmation = degiro.checkOrder(order)
 
                 if (!Strings.isNullOrEmpty(confirmation.confirmationId)) {
                     val placed: DPlacedOrder = degiro.confirmOrder(order, confirmation.confirmationId)
-                    if (place.getStatusId() !== 0) {
-                        throw RuntimeException("Order not placed: " + place.getStatusText())
+                    if (placed.status != 0) {
+                        throw RuntimeException("Order not placed: " + placed.statusText)
                     }
                 }
             }
