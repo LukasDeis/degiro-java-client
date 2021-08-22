@@ -77,7 +77,7 @@ public class DeGiroImpl implements DeGiro {
     @Override
     public DPortfolioProducts getPortfolio() throws DeGiroException {
 
-        DPortfolioProducts portfolio = null;
+        DPortfolioProducts portfolio;
         ensureLogged();
 
         try {
@@ -95,7 +95,7 @@ public class DeGiroImpl implements DeGiro {
     @Override
     public DPortfolioSummary getPortfolioSummary() throws DeGiroException {
 
-        DPortfolioSummary portfolioSummary = null;
+        DPortfolioSummary portfolioSummary;
         ensureLogged();
 
         try {
@@ -113,7 +113,7 @@ public class DeGiroImpl implements DeGiro {
     @Override
     public DCashFunds getCashFunds() throws DeGiroException {
 
-        DCashFunds cashFunds = null;
+        DCashFunds cashFunds;
         ensureLogged();
 
         try {
@@ -129,7 +129,7 @@ public class DeGiroImpl implements DeGiro {
     @Override
     public List<DOrder> getOrders() throws DeGiroException {
 
-        DOrders orders = null;
+        DOrders orders;
         ensureLogged();
 
         try {
@@ -145,7 +145,7 @@ public class DeGiroImpl implements DeGiro {
     @Override
     public DLastTransactions getLastTransactions() throws DeGiroException {
 
-        DLastTransactions transactions = null;
+        DLastTransactions transactions;
         ensureLogged();
 
         try {
@@ -161,7 +161,7 @@ public class DeGiroImpl implements DeGiro {
     @Override
     public DTransactions getTransactions(Calendar from, Calendar to) throws DeGiroException {
 
-        DTransactions transactions = null;
+        DTransactions transactions;
         ensureLogged();
 
         try {
@@ -310,14 +310,14 @@ public class DeGiroImpl implements DeGiro {
 
     private String generatePriceRequestPayload() {
 
-        String requestedIssues = "";
+        StringBuilder requestedIssues = new StringBuilder();
         for (String issueId : subscribedVwdIssues.keySet()) {
             Long last = subscribedVwdIssues.get(issueId);
             if (last == null || last > pollingInterval) {
-                requestedIssues += "req(X.BidPrice);req(X.AskPrice);req(X.LastPrice);req(X.LastTime);".replace("X", issueId + "");
+                requestedIssues.append("req(X.BidPrice);req(X.AskPrice);req(X.LastPrice);req(X.LastTime);".replace("X", issueId + ""));
             }
         }
-        return requestedIssues;
+        return requestedIssues.toString();
 
     }
 
@@ -361,7 +361,7 @@ public class DeGiroImpl implements DeGiro {
     @Override
     public DProductDescriptions getProducts(List<Long> productIds) throws DeGiroException {
 
-        DProductDescriptions products = null;
+        DProductDescriptions products;
 
         ensureLogged();
         try {
@@ -419,7 +419,7 @@ public class DeGiroImpl implements DeGiro {
             throw new DeGiroException("Order was null (no order to check)");
         }
 
-        DOrderConfirmation orderConfirmation = null;
+        DOrderConfirmation orderConfirmation;
         ensureLogged();
         try {
             DResponse response = comm.getUrlData(session.getConfig().getTradingUrl(), "v5/checkOrder;jsessionid=" + session.getJSessionId() + "?intAccount=" + session.getClient().getIntAccount() + "&sessionId=" + session.getJSessionId(), orderToMap(order));

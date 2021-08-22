@@ -2,6 +2,8 @@ package cat.indiketa.degiro.engine;
 
 import cat.indiketa.degiro.DeGiro;
 import cat.indiketa.degiro.DeGiroFactory;
+import cat.indiketa.degiro.DeGiroImpl;
+import cat.indiketa.degiro.engine.automation.BailoutBot;
 import cat.indiketa.degiro.model.DOrder;
 import cat.indiketa.degiro.utils.DCredentials;
 
@@ -27,6 +29,7 @@ public class Main {
         }
 
         //starting the automatic bailout bot
+        BailoutBot bot = new BailoutBot(degiro);
     }
 
     private static DCredentials getCredentials() {

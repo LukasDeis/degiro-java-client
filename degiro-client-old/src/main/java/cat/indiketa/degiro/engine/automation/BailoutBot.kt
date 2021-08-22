@@ -1,15 +1,16 @@
 package cat.indiketa.degiro.engine.automation
 
+import cat.indiketa.degiro.DeGiro
 import cat.indiketa.degiro.DeGiroImpl
 import cat.indiketa.degiro.model.*
 import java.math.BigDecimal
 
 
 class BailoutBot (
-        degiro: DeGiroImpl
+        degiro: DeGiro
         ){
 
-    private var degiro: DeGiroImpl
+    private var degiro: DeGiro
 
     init {
         this.degiro = degiro
@@ -48,7 +49,6 @@ class BailoutBot (
                 degiro.portfolioSummary
                 val size = degiro.portfolio.active
                     .filter { it.id == productID }
-                    //TODO I want to get the number of products in the portfolio here, but probably it always evaluates to 1
                     .size
                     .toLong()
                 val order = DNewOrder(
