@@ -324,7 +324,7 @@ public class DUtils {
 
         if (date.contains(":")) {
             parsed = Calendar.getInstance();
-            parsed.set(Calendar.HOUR_OF_DAY, Integer.parseInt(date.split(":")[0]));
+            parsed.set(Calendar.HOUR_OF_DAY, Integer.parseInt(date.split("T")[1].split(":")[0]));
             parsed.set(Calendar.MINUTE, Integer.parseInt(date.split(":")[1]));
             parsed.set(Calendar.SECOND, 0);
             parsed.set(Calendar.MILLISECOND, 0);

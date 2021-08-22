@@ -7,7 +7,7 @@ import lombok.Data;
 @Builder
 public class DPlacedOrder {
 
-    private int status;
-    private String statusText;
-    private String orderId;
+    public int status;
+    public String statusText;
+    public String orderId;
 }

@@ -6,9 +6,9 @@ import lombok.Data;
 @Data
 @Builder
 public class DOrderConfirmation {
-    private String confirmationId;
-    private double freeSpaceNew;
-    private String message;
-    private long status;
-    private String statusText;
+    public String confirmationId;
+    public double freeSpaceNew;
+    public String message;
+    public long status;
+    public String statusText;
 }

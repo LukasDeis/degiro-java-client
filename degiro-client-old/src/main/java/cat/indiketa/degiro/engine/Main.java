@@ -7,6 +7,7 @@ import cat.indiketa.degiro.utils.DCredentials;
 
 import java.io.File;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  *
@@ -30,15 +31,20 @@ public class Main {
 
     private static DCredentials getCredentials() {
         DCredentials creds = new DCredentials() {
+            private Scanner scan = new Scanner(System.in);
 
             @Override
             public String getUsername() {
-                return "";
+                System.out.println("Please enter your username.");
+                String username = scan.nextLine();
+                return username;
             }
 
             @Override
             public String getPassword() {
-                return "";
+                System.out.println("Please enter your password.");
+                String pw = scan.nextLine();
+                return pw;
             }
         };
         return creds;

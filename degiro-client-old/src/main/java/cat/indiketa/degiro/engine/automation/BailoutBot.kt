@@ -2,7 +2,6 @@ package cat.indiketa.degiro.engine.automation
 
 import cat.indiketa.degiro.DeGiroImpl
 import cat.indiketa.degiro.model.*
-import com.google.common.base.Strings
 import java.math.BigDecimal
 
 
@@ -24,10 +23,13 @@ class BailoutBot (
             degiro.setPriceListener(DPriceListener {
                 actOnPrice(product)
             })
-            val vwdID = product
+            val vwdID = product.id
             vwdIssueIds.add(vwdID) // Example product vwdIssueId
         }
-        degiro.subscribeToPrice(vwdIssueIds) // Callable multiple times with different products.
+        val vwdIssueIdStrings = vwdIssueIds.map {
+            it -> it.toString()
+        }
+        degiro.subscribeToPrice(vwdIssueIdStrings) // Callable multiple times with different products.
     }
 
     private fun actOnPrice(product: DPortfolioProducts.DPortfolioProduct) {
@@ -43,8 +45,10 @@ class BailoutBot (
                 // Generate a new order. Signature:
                 // public DNewOrder(DOrderAction action, DOrderType orderType, DOrderTime timeType, long productId, long size, BigDecimal limitPrice, BigDecimal stopPrice)
                 val productID = product.id
+                degiro.portfolioSummary
                 val size = degiro.portfolio.active
-                    .filter { it.id = productID }
+                    .filter { it.id == productID }
+                    //TODO I want to get the number of products in the portfolio here, but probably it always evaluates to 1
                     .size
                     .toLong()
                 val order = DNewOrder(
@@ -57,12 +61,13 @@ class BailoutBot (
                     null)
                 val confirmation: DOrderConfirmation = degiro.checkOrder(order)
 
-                if (!Strings.isNullOrEmpty(confirmation.confirmationId)) {
+                if (!confirmation.confirmationId.isNullOrEmpty()) {
                     val placed: DPlacedOrder = degiro.confirmOrder(order, confirmation.confirmationId)
                     if (placed.status != 0) {
                         throw RuntimeException("Order not placed: " + placed.statusText)
                     }
                 }
+                //TODO if / when the order was placed, stop the price watcher
             }
         }
     }
